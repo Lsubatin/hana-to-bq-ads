@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "imports": [
+    {
+      "target_table": "SALES_CUSTOMERS",
+      "source_data": {
+        "data_type": "CSV",
+        "file_name": "SALES.CUSTOMERS.csv",
+        "has_header": true,
+        "type_config": {
+          "delimiter": ","
+        }
+      },
+      "import_settings": {
+        "import_columns": [
+          "CUSTOMER_ID",
+          "FIRST_NAME",
+          "LAST_NAME",
+          "COUNTRY",
+          "AGE_GROUP",
+          "EDUCATION_LEVEL",
+          "MARITAL_STATUS"
+        ],
+        "include_filter": []
+      },
+      "column_mappings": {
+        "CUSTOMER_ID": "CUSTOMER_ID",
+        "FIRST_NAME": "FIRST_NAME",
+        "LAST_NAME": "LAST_NAME",
+        "COUNTRY": "COUNTRY",
+        "AGE_GROUP": "AGE_GROUP",
+        "EDUCATION_LEVEL": "EDUCATION_LEVEL",
+        "MARITAL_STATUS": "MARITAL_STATUS"
+      }
+    }
+  ]
+}

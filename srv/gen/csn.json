@@ -1,0 +1,190 @@
+{
+  "namespace": "SALES",
+  "definitions": {
+    "CatalogService": {
+      "@source": "srv/cat-service.cds",
+      "kind": "service"
+    },
+    "CatalogService.Customers": {
+      "kind": "entity",
+      "@readonly": true,
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "SALES.CUSTOMERS"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "CUSTOMER_ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "FIRST_NAME": {
+          "type": "cds.String"
+        },
+        "LAST_NAME": {
+          "type": "cds.String"
+        },
+        "COUNTRY": {
+          "type": "cds.String"
+        },
+        "AGE_GROUP": {
+          "type": "cds.String"
+        },
+        "EDUCATION_LEVEL": {
+          "type": "cds.String"
+        },
+        "MARITAL_STATUS": {
+          "type": "cds.String"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "CatalogService.Products": {
+      "kind": "entity",
+      "@readonly": true,
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "SALES.PRODUCTS"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "MAT_ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "DESCRIPTION": {
+          "type": "cds.String"
+        },
+        "LANG": {
+          "type": "cds.String"
+        },
+        "FAMILY": {
+          "type": "cds.String"
+        },
+        "SUBFAMILY": {
+          "type": "cds.String"
+        },
+        "CATEGORY": {
+          "type": "cds.String"
+        },
+        "SUBCATEGORY": {
+          "type": "cds.String"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "CatalogService.SalesItems": {
+      "kind": "entity",
+      "@insertonly": true,
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "SALES.SALES_ITEMS"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "ORDER_ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "DATE": {
+          "type": "cds.String"
+        },
+        "CUSTOMER_ID": {
+          "type": "cds.String"
+        },
+        "PRODUCT_ID": {
+          "type": "cds.String"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "SALES.CUSTOMERS": {
+      "kind": "entity",
+      "elements": {
+        "CUSTOMER_ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "FIRST_NAME": {
+          "type": "cds.String"
+        },
+        "LAST_NAME": {
+          "type": "cds.String"
+        },
+        "COUNTRY": {
+          "type": "cds.String"
+        },
+        "AGE_GROUP": {
+          "type": "cds.String"
+        },
+        "EDUCATION_LEVEL": {
+          "type": "cds.String"
+        },
+        "MARITAL_STATUS": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "SALES.PRODUCTS": {
+      "kind": "entity",
+      "elements": {
+        "MAT_ID": {
+          "key": true,
+          "type": "cds.String"
+        },
+        "DESCRIPTION": {
+          "type": "cds.String"
+        },
+        "LANG": {
+          "type": "cds.String"
+        },
+        "FAMILY": {
+          "type": "cds.String"
+        },
+        "SUBFAMILY": {
+          "type": "cds.String"
+        },
+        "CATEGORY": {
+          "type": "cds.String"
+        },
+        "SUBCATEGORY": {
+          "type": "cds.String"
+        }
+      }
+    },
+    "SALES.SALES_ITEMS": {
+      "kind": "entity",
+      "elements": {
+        "ORDER_ID": {
+          "key": true,
+          "type": "cds.Integer"
+        },
+        "DATE": {
+          "type": "cds.String"
+        },
+        "CUSTOMER_ID": {
+          "type": "cds.String"
+        },
+        "PRODUCT_ID": {
+          "type": "cds.String"
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.26.2"
+  },
+  "$version": "1.0"
+}

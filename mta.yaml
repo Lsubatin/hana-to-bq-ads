@@ -1,0 +1,33 @@
+ID: hana_sales
+_schema-version: '2.1'
+version: 0.0.1
+modules:
+  - name: hana_sales-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 512M
+    requires:
+      - name: hana_sales-db-hdi-container
+  - name: hana_sales-srv
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 512M
+      disk-quota: 512M
+    provides:
+      - name: srv_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: hana_sales-db-hdi-container
+resources:
+  - name: hana_sales-db-hdi-container
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: '${service-name}'
+    parameters:
+      service-name: hdi-sales
+      config:
+        schema: SALES
